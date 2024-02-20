@@ -29,6 +29,8 @@
                     <td>{{ $todo->description }}</td>
                     <td>{{ $todo->is_done }}</td>
                     <td>
+                        <a href="{{ route('todos.show', $todo->id) }}">Voir</a>
+                        <hr>
                         <a href="{{ route('todos.edit', $todo->id) }}">Modifier</a>
                         <hr>
                         <form action="{{ route('todos.destroy') }}" method="POST">

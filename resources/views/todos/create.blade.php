@@ -16,6 +16,13 @@
         <label for="description">Description</label>
         <input type="text" name="description" id="description">
         <br>
+        <select name="user_id" id="user_id">
+            <option value="">-- Choisissez un utilisateur --</option>
+            @foreach ($users as $user)
+                <option value="{{ $user->id }}">{{ $user->name }}</option>
+            @endforeach
+        </select>
+        <br>
         <button type="submit">Ajouter</button>
     </form>
 

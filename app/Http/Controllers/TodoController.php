@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Todo;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TodoController extends Controller
@@ -16,7 +17,14 @@ class TodoController extends Controller
 
     public function create()
     {
-        return view('todos.create');
+        $users = User::all();
+        return view('todos.create', compact('users'));
+    }
+
+    public function show($id)
+    {
+        $todo = Todo::find($id);
+        return view('todos.show', compact('todo'));
     }
 
     public function store(Request $request)
